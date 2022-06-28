@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/Dlgalert_CVrootview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/card_bg"
+    app:cardCornerRadius="20dp"
+    app:strokeWidth="5dp"
+    app:strokeColor="?attr/colorPrimary"
+    app:contentPaddingTop="8dp"
+    app:contentPaddingBottom="24dp"
+    app:contentPaddingLeft="8dp"
+    app:contentPaddingRight="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Insert Ip"
+            app:boxStrokeColor="@color/blue"
+            app:boxStrokeWidthFocused="1dp"
+            app:boxStrokeWidth="0dp"
+            app:boxCornerRadiusTopStart="5dp"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusBottomStart="5dp"
+            app:boxCornerRadiusBottomEnd="5dp"
+            app:boxBackgroundColor="#F5F5F5"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890.:"
+                android:text="192.168."/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_set"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Set Ip"
+            app:cornerRadius="5dp"
+            android:layout_gravity="center_horizontal"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

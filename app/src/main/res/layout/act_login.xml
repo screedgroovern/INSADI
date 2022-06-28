@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Login_CLrootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_act"
+    tools:context=".Login">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Login_CV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/blue_light"
+        style="@style/CustomCardDefault"
+        app:layout_constraintWidth_percent="0.85"
+        app:layout_constraintTop_toTopOf="@id/Login_GLh20"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Login_CL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/Login_TVttl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/masukan_username_dan_password_anda"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Login_TILusername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                app:startIconDrawable="@drawable/ic_member"
+                app:startIconTint="@null"
+                app:hintEnabled="false"
+                style="@style/CustomTILStroke"
+                app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintTop_toBottomOf="@id/Login_TVttl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Login_EDusername"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingTop="8dp"
+                    android:hint="@string/username"
+                    android:textColorHint="?attr/colorPrimary"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    android:inputType="textNoSuggestions"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Login_TILpwd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:startIconDrawable="@drawable/ic_password"
+                app:startIconTint="@null"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/green"
+                style="@style/CustomTILStroke"
+                app:layout_constraintWidth_percent="0.9"
+                app:layout_constraintTop_toBottomOf="@id/Login_TILusername"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Login_EDpwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingTop="8dp"
+                    android:hint="@string/password"
+                    android:textColorHint="?attr/colorPrimary"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/Login_PB"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="@id/Login_BTlogin"
+                app:layout_constraintBottom_toBottomOf="@id/Login_BTlogin"
+                app:layout_constraintStart_toStartOf="@id/Login_BTlogin"
+                app:layout_constraintEnd_toEndOf="@id/Login_BTlogin"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Login_BTlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                style="@style/CustomMBDefault"
+                app:layout_constraintTop_toBottomOf="@id/Login_TILpwd"
+                app:layout_constraintEnd_toEndOf="@id/Login_TILpwd"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/Login_GLh20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

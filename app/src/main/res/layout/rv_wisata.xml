@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="wisatadata"
+            type="com.groovernapp.data.models.WisataData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/RVWisata_CVrootview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="12dp"
+        style="@style/CustomCardDefault">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/RVWisata_CLcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVWisata_TVnamawisata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="Air Terjun Widuri"
+                android:text="@{wisatadata.namaWisata}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/RVWisata_IVgroup"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                tools:src="@drawable/ic_wisata_alam"
+                app:imageResource="@{wisatadata.groupWisata.icon}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/RVWisata_IMGhrgtiket"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_member"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/RVWisata_TVnamawisata"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVWisata_TVhrgtiket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="Gilang"
+                setHargaTiket="@{wisatadata.hrgTiket}"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/RVWisata_IMGhrgtiket"
+                app:layout_constraintBottom_toBottomOf="@id/RVWisata_IMGhrgtiket"
+                app:layout_constraintStart_toEndOf="@id/RVWisata_IMGhrgtiket" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/RVWisata_IMGjambuka"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_time"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toTopOf="@id/RVWisata_TVjambuka"
+                app:layout_constraintBottom_toBottomOf="@id/RVWisata_TVjambuka"
+                app:layout_constraintStart_toStartOf="@id/RVWisata_IMGhrgtiket" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVWisata_TVjambuka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="089765123453"
+                android:textSize="15sp"
+                setJamBuka="@{wisatadata.jamBuka}"
+                setJamTutup="@{wisatadata.jamTutup}"
+                app:layout_constraintTop_toBottomOf="@id/RVWisata_IMGhrgtiket"
+                app:layout_constraintStart_toEndOf="@id/RVWisata_IMGjambuka" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/RVWisata_IMGalamat"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_location"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toTopOf="@id/RVWisata_TValamat"
+                app:layout_constraintBottom_toBottomOf="@id/RVWisata_TValamat"
+                app:layout_constraintStart_toStartOf="@id/RVWisata_IMGhrgtiket" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVWisata_TValamat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="Jl. semarang no 56, Semarang"
+                android:textSize="15sp"
+                android:text="@{wisatadata.alamat}"
+                app:layout_constraintTop_toBottomOf="@id/RVWisata_IMGjambuka"
+                app:layout_constraintStart_toEndOf="@id/RVWisata_IMGalamat"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVWisata_TVjmlPengunjung"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:drawableStart="@drawable/ic_round_group"
+                android:drawablePadding="10dp"
+                tools:text="200 pengunjung"
+                android:text="@{String.format(@string/format_pengunjung, wisatadata.jmlPengunjung)}"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:textColor="#666666"
+                app:layout_constraintTop_toBottomOf="@id/RVWisata_TValamat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVWisata_TVjarak"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="30,5Km"
+                android:textSize="14sp"
+                android:text="@{String.format(@string/format_distance,wisatadata.distance)}"
+                android:textColor="@color/gray"
+                android:textStyle="italic"
+                app:layout_constraintTop_toTopOf="@id/RVWisata_BTdirection"
+                app:layout_constraintBottom_toBottomOf="@id/RVWisata_BTdirection"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/RVWisata_BTdirection"
+                style="@style/CustomMBDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/petunjuk_arah"
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                app:icon="@drawable/ic_location"
+                app:iconSize="18dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/RVWisata_TVjmlPengunjung" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

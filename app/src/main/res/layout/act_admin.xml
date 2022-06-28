@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Admin_CLrootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_act2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Admin_CLheader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_circle"
+        app:layout_constraintWidth_percent="1.5"
+        app:layout_constraintHeight_percent="0.43"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/Admin_IMGback"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/ic_arrowback"
+            app:tint="@color/white"
+            app:layout_constraintTop_toTopOf="@id/GLheaderh50"
+            app:layout_constraintStart_toStartOf="@id/GLheaderv18"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/Admin_TVttl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/list_admin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/Admin_IMGback"
+            app:layout_constraintBottom_toBottomOf="@id/Admin_IMGback"
+            app:layout_constraintStart_toEndOf="@id/Admin_IMGback"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/GLheaderv18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.18"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/GLheaderh50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.63" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Admin_CVsearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        style="@style/CustomCardDefault"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintWidth_percent="0.85"
+        app:layout_constraintBottom_toBottomOf="@id/Admin_CLheader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Admin_TILsearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/green"
+            app:endIconMode="clear_text"
+            app:endIconTint="@android:color/darker_gray"
+            app:hintEnabled="false"
+            style="@style/CustomTILDefault">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Admin_EDsearch"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingTop="8dp"
+                android:hint="@string/nama_username_no_hp"
+                android:textColorHint="@color/blue"
+                android:imeOptions="actionSearch"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/Admin_SRlistadmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Admin_CVsearch"
+        app:layout_constraintWidth_percent="0.95">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Admin_RVlistadmin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/rv_admin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Admin_FABaddadmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_add"
+        android:tint="@color/white"
+        app:maxImageSize="36dp"
+        app:layout_constraintBottom_toBottomOf="@id/Admin_SRlistadmin"
+        app:layout_constraintEnd_toEndOf="@id/Admin_SRlistadmin"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="androidx.core.content.ContextCompat"/>
+        <variable
+            name="wisatadata"
+            type="com.groovernapp.data.models.WisataData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:padding="8dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_wisata_suggest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            tools:text="Air Terjun Widuri"
+            android:text="@{wisatadata.namaWisata}"
+            android:textSize="15sp"
+            android:drawableStart="@{ContextCompat.getDrawable(context, wisatadata.groupWisata.icon)}"
+            android:drawablePadding="10dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@id/tv_distance"
+            app:layout_constraintBottom_toBottomOf="@id/tv_distance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_distance"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="24 Km"
+            android:text="@{String.format(@string/format_distance, wisatadata.distance)}"
+            android:textSize="15sp"
+            android:textColor="@color/gray"
+            android:textStyle="italic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.app.Activity"/>
+        <variable
+            name="gMap"
+            type="com.google.android.gms.maps.GoogleMap" />
+        <variable
+            name="vm"
+            type="com.groovernapp.insadi.mapAlamat.VMMapAlamat" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/Mapalamat_Clrootview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <include layout="@layout/frags_googlemap" />
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/Mapalamat_AB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fitsSystemWindows="true"
+            android:elevation="0dp"
+            app:expanded="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/Mapalamat_CTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layout_scrollFlags="scroll">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contentPaddingTop="10dp"
+                    app:contentPaddingBottom="10dp"
+                    style="@style/CustomCardDefault">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/Mapalamat_CLtbcontent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/Mapalamat_BTback"
+                            android:layout_width="30dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="8dp"
+                            app:icon="@drawable/ic_arrow_back"
+                            app:iconSize="30dp"
+                            app:iconTint="?attr/colorPrimary"
+                            android:paddingStart="0dp"
+                            android:paddingEnd="0dp"
+                            android:onClick="@{()->((Activity)context).finishAfterTransition()}"
+                            style="@style/CustomMBIconOnlyNoBackground"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintTop_toTopOf="@id/Mapalamat_TILtbaddress"
+                            app:layout_constraintBottom_toBottomOf="@id/Mapalamat_TILtbaddress"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/Mapalamat_TILtbaddress"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="14dp"
+                            app:hintTextAppearance="@style/til_nohinttext"
+                            app:startIconDrawable="@drawable/ic_location"
+                            app:startIconTint="?attr/colorPrimary"
+                            app:endIconMode="clear_text"
+                            app:hintEnabled="false"
+                            style="@style/CustomTILDefault"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/Mapalamat_BTback"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/Mapalamat_EDtbaddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white66"
+                                android:gravity="start|center"
+                                android:paddingTop="8dp"
+                                android:hint="@string/ketikan_alamat_wisata"
+                                android:textColorHint="@color/light_gray"
+                                android:textSize="15sp"
+                                android:textColor="?attr/colorSecondary"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:imeOptions="actionSearch" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/MapAlamat_CLmarker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/Mapalamat_IMGmarker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/Mapalamat_GLmarker50" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/Mapalamat_GLmarker50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Mapalamat_FAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_location"
+            android:tint="?attr/colorPrimary"
+            android:backgroundTint="?attr/colorSecondary"
+            app:maxImageSize="28dp"
+            app:layout_anchorGravity="top|end"
+            app:layout_anchor="@id/BSMmapinstruc_CLrootview" />
+
+        <include layout="@layout/bsm_mapinstruc"
+            android:id="@+id/MapAlamat_BSMmapinstruc"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

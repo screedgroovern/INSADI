@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isAdminView"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_back"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="16dp"
+            app:backgroundTint="@color/white"
+            app:icon="@drawable/ic_arrow_back"
+            app:iconTint="?attr/colorPrimary"
+            app:iconSize="30dp"
+            app:layout_constraintDimensionRatio="1:1"
+            style="@style/CustomMBIconOnlyDefault"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TVttl"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginStart="8dp"
+            android:text="@string/tambah_wisata"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="@id/bt_back"
+            app:layout_constraintStart_toEndOf="@id/bt_back"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/SV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/TVttl"
+            app:layout_constraintBottom_toTopOf="@id/BTyes">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/CLcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_wisata_photo"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="24dp"
+                    app:strokeColor="@android:color/holo_blue_light"
+                    app:strokeWidth="1dp"
+                    android:visibility="gone"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintDimensionRatio="2:1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ic_add"
+                    app:tint="?attr/colorPrimary"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="@id/iv_wisata_photo"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_wisata_photo"
+                    app:layout_constraintStart_toStartOf="@id/iv_wisata_photo"
+                    app:layout_constraintEnd_toEndOf="@id/iv_wisata_photo"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILjeniswisata"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:boxBackgroundColor="@color/blue_light"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    android:hint="@string/jenis_wisata"
+                    app:hintTextAppearance="@style/til_hinttext"
+                    android:textColorHint="?attr/colorPrimary"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/iv_wisata_photo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/ACTVjeniswisata"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Wisata Alam"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILnamawisata"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/nama_wisata"
+                    app:startIconDrawable="@drawable/ic_member"
+                    app:startIconTint="@null"
+                    style="@style/CustomTILDefault"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/TILjeniswisata"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EDnamawisata"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:focusable="@{isAdminView}"
+                        android:focusableInTouchMode="@{isAdminView}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILhrgtiket"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/harga_tiket"
+                    app:startIconDrawable="@drawable/ic_phone"
+                    app:startIconTint="@null"
+                    style="@style/CustomTILDefault"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/TILnamawisata"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EDhrgtiket"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="20.000"
+                        android:selectAllOnFocus="true"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:maxLines="1"
+                        android:inputType="phone"
+                        android:focusable="@{isAdminView}"
+                        android:focusableInTouchMode="@{isAdminView}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILjambukatutup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/jam_buka"
+                    android:textColorHint="?attr/colorPrimary"
+                    app:startIconDrawable="@drawable/ic_time"
+                    app:startIconTint="@null"
+                    style="@style/CustomTILDefault"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/TILhrgtiket"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EDjambukatutup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="05:00 - 10:00"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:focusableInTouchMode="false"
+                        android:focusable="false"
+                        android:maxLines="1"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILalamat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/alamat"
+                    app:startIconDrawable="@drawable/ic_location"
+                    app:startIconTint="@null"
+                    style="@style/CustomTILDefault"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/TILjambukatutup"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EDalamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:focusableInTouchMode="false"
+                        android:focusable="false"
+                        android:maxLines="3"
+                        android:ellipsize="end" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILdeskripsi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/deskripsi"
+                    app:startIconDrawable="@drawable/ic_edit"
+                    app:startIconTint="@null"
+                    style="@style/CustomTILDefault"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/TILalamat"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EDdeskripsi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:inputType="textMultiLine"
+                        android:focusable="@{isAdminView}"
+                        android:focusableInTouchMode="@{isAdminView}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/TILjmlpengujung"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/jumlah_pengunjung"
+                    app:startIconDrawable="@drawable/ic_round_group"
+                    app:startIconTint="@null"
+                    style="@style/CustomTILDefault"
+                    app:layout_constraintWidth_percent="0.9"
+                    app:layout_constraintTop_toBottomOf="@id/TILdeskripsi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/EDjmlpengunjung"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="16sp"
+                        android:minLines="5"
+                        android:maxLines="5"
+                        android:inputType="text"
+                        android:focusable="@{isAdminView}"
+                        android:focusableInTouchMode="@{isAdminView}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/BTdirection"
+                    style="@style/CustomMBDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    android:text="@string/petunjuk_arah"
+                    android:textAllCaps="false"
+                    android:textSize="14dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:icon="@drawable/ic_location"
+                    app:iconSize="24dp"
+                    app:layout_constraintWidth_percent="0.8"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TILjmlpengujung" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/BTdelete"
+                    style="@style/CustomMBDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="16dp"
+                    app:backgroundTint="@android:color/holo_red_light"
+                    android:text="@string/delete_wisata"
+                    android:textAllCaps="false"
+                    android:textSize="14dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_delete"
+                    app:iconSize="24dp"
+                    app:layout_constraintWidth_percent="0.8"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/BTdirection" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_constraintTop_toBottomOf="@id/BTdelete" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BTyes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="24dp"
+            android:text="@{isAdminView ? @string/submit : @string/ok}"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            style="@style/CustomMBDefault"
+            app:layout_constraintWidth_percent="0.4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/BTno"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/BTno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/batal"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:textSize="16sp"
+            style="@style/CustomMBStrokeDefault"
+            app:layout_constraintWidth_percent="0.4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/BTyes" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

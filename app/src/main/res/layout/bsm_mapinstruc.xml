@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <merge>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/BSMmapinstruc_CLrootview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:behavior_hideable="false"
+            app:behavior_peekHeight="0dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <View
+                android:id="@+id/BSMmapinstruc_VWbg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/black66"
+                app:layout_constraintTop_toTopOf="@id/BSMmapinstruc_TVinstruc"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/BSMmapinstruc_TVinstruc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:text="@string/geser_map_untuk_mengoreksi_lokasi_anda"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/BSMmapinstruc_BTsetmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/set_lokasi"
+                android:textColor="@color/white"
+                style="@style/CustomMBDefault"
+                app:layout_constraintTop_toBottomOf="@id/BSMmapinstruc_TVinstruc"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </merge>
+</layout>

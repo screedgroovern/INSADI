@@ -1,0 +1,46 @@
+<resources>
+    <string name="format_jam_wisata">%1$s - %2$s</string>
+    <string name="format_nama_wisata">Wisata %1$s</string>
+
+    <string name="app_name">INSADI</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="masukan_username_dan_password_anda">Masukan Username dan Password anda</string>
+    <string name="login">Login</string>
+    <string name="ok">Ok</string>
+    <string name="admin">Admin</string>
+    <string name="list_admin">List Admin</string>
+    <string name="cari_tempat_pariwisata">Cari tempat pariwisata</string>
+    <string name="nama_username_no_hp">Nama/Username/No. Hp</string>
+    <string name="edit">Edit</string>
+    <string name="tambah_admin">Tambah Admin</string>
+    <string name="submit">Submit</string>
+    <string name="batal">Batal</string>
+    <string name="nama">Nama</string>
+    <string name="password_baru">Password Baru</string>
+    <string name="masukan_lagi_password_baru">Masukan lagi password baru</string>
+    <string name="master">Master</string>
+    <string name="edit_admin">Edit Admin</string>
+    <string name="alamat">Alamat</string>
+    <string name="no_handphone">No. Handphone</string>
+    <string name="tambah_wisata">Tambah Wisata</string>
+    <string name="edit_wisata">Edit Wisata</string>
+    <string name="delete_wisata">Delete Wisata</string>
+    <string name="nama_wisata">Nama Wisata</string>
+    <string name="jenis_wisata">Jenis Wisata</string>
+    <string name="harga_tiket">Harga Tiket</string>
+    <string name="jam_buka">Jam Buka</string>
+    <string name="semua">Semua</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="logout">Logout</string>
+    <string name="ketikan_alamat_wisata">Ketikan alamat wisata</string>
+    <string name="set_lokasi">Set lokasi</string>
+    <string name="geser_map_untuk_mengoreksi_lokasi_anda">Geser map untuk mengoreksi lokasi anda</string>
+    <string name="gps_anda_mati">Gps anda mati</string>
+    <string name="gps_harus_menyala">Gps harus menyala</string>
+    <string name="hidupkan">Hidupkan</string>
+    <string name="format_distance">%.1f km</string>
+    <string name="format_pengunjung">%s pengunjung</string>
+    <string name="jumlah_pengunjung">Jumlah pengunjung</string>
+    <string name="petunjuk_arah">Petunjuk arah</string>
+</resources>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="userdata"
+            type="com.groovernapp.data.models.UserData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/RVAdmin_CVrootview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:contentPadding="12dp"
+        app:cardElevation="3dp"
+        style="@style/CustomCardDefault">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/RVAdmin_CLcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVAdmin_TVusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="gilang"
+                android:text="@{userdata.username}"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVAdmin_TVjabatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="master"
+                android:text="@{userdata.jabatan.value}"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:typeface="serif"
+                android:textColor="?attr/colorSecondary"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/RVAdmin_IMGnama"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_member"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/RVAdmin_TVusername"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVAdmin_TVnama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="Gilang"
+                android:text="@{userdata.nama}"
+                android:textSize="15sp"
+                app:layout_constraintTop_toTopOf="@id/RVAdmin_IMGnama"
+                app:layout_constraintBottom_toBottomOf="@id/RVAdmin_IMGnama"
+                app:layout_constraintStart_toEndOf="@id/RVAdmin_IMGnama" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/RVAdmin_IMGtelp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_phone"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/RVAdmin_TVnama"
+                app:layout_constraintStart_toStartOf="@id/RVAdmin_IMGnama" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVAdmin_TVtelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="089765123453"
+                android:textSize="15sp"
+                android:text="@{userdata.telp}"
+                app:layout_constraintTop_toTopOf="@id/RVAdmin_IMGtelp"
+                app:layout_constraintBottom_toBottomOf="@id/RVAdmin_IMGtelp"
+                app:layout_constraintStart_toEndOf="@id/RVAdmin_IMGtelp" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/RVAdmin_IMGalamat"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_home"
+                app:tint="?attr/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/RVAdmin_IMGtelp"
+                app:layout_constraintStart_toStartOf="@id/RVAdmin_IMGnama" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVAdmin_TValamat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                tools:text="Jl. semarang no 56, Semarang"
+                android:textSize="15sp"
+                android:text="@{userdata.alamat}"
+                app:layout_constraintTop_toTopOf="@id/RVAdmin_IMGalamat"
+                app:layout_constraintBottom_toBottomOf="@id/RVAdmin_IMGalamat"
+                app:layout_constraintStart_toEndOf="@id/RVAdmin_IMGalamat"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/RVAdmin_BTdelete"
+                android:layout_width="30dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="10dp"
+                android:padding="0dp"
+                app:icon="@drawable/ic_delete"
+                app:iconSize="30dp"
+                app:iconTint="@android:color/holo_red_dark"
+                style="@style/CustomMBIconOnlyNoBackground"
+                app:elevation="0dp"
+                app:backgroundTint="@color/white"
+                app:layout_constraintTop_toTopOf="@id/RVAdmin_BTedit"
+                app:layout_constraintBottom_toBottomOf="@id/RVAdmin_BTedit"
+                app:layout_constraintEnd_toStartOf="@id/RVAdmin_BTedit" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/RVAdmin_BTedit"
+                style="@style/CustomMBDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/edit"
+                android:textAllCaps="false"
+                android:textSize="16dp"
+                app:icon="@drawable/ic_edit"
+                app:iconSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/RVAdmin_TValamat" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/RVAdmin_TVregdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="16dp"
+                tools:text="05-08-2021 | 15:23"
+                android:text="@{userdata.regDate}"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                android:textColor="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

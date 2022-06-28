@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MV_CLrootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_act2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/MV_CLprofile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_circle"
+        app:layout_constraintWidth_percent="1.5"
+        app:layout_constraintHeight_percent="0.77"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/MV_TVjabatan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            tools:text="MASTER"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:typeface="serif"
+            app:layout_constraintTop_toTopOf="@id/MV_GLprofileh50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/MV_TVnama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_member"
+            android:drawablePadding="10dp"
+            app:drawableTint="@color/white"
+            tools:text="Gilang"
+            android:textSize="15dp"
+            android:textColor="@color/blue_light"
+            app:layout_constraintTop_toBottomOf="@id/MV_TVjabatan"
+            app:layout_constraintStart_toStartOf="@id/MV_GLprofilev23"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/MV_TVtelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:drawableStartCompat="@drawable/ic_phone"
+            android:drawablePadding="10dp"
+            app:drawableTint="@color/white"
+            tools:text="089765123453"
+            android:textSize="15dp"
+            android:textColor="@color/blue_light"
+            app:layout_constraintTop_toBottomOf="@id/MV_TVnama"
+            app:layout_constraintStart_toStartOf="@id/MV_TVnama"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/MV_TValamat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Jl. semarang no 56, Semarang"
+            android:drawableStart="@drawable/ic_home"
+            android:drawablePadding="10dp"
+            app:drawableTint="@color/white"
+            android:textSize="15dp"
+            android:textColor="@color/blue_light"
+            app:layout_constraintTop_toBottomOf="@id/MV_TVtelp"
+            app:layout_constraintStart_toStartOf="@id/MV_TVtelp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MV_BTlistadmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/list_admin"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            style="@style/CustomMBDefault"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintTop_toBottomOf="@id/MV_TValamat"
+            app:layout_constraintEnd_toStartOf="@id/MV_BTlogout"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/MV_BTlogout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/red"
+            android:layout_marginTop="3dp"
+            android:text="@string/logout"
+            android:textSize="14sp"
+            android:textAllCaps="false"
+            style="@style/CustomMBDefault"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintTop_toBottomOf="@id/MV_TValamat"
+            app:layout_constraintEnd_toEndOf="@id/MV_GLprofilev80"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/MV_GLprofilev23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.23"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/MV_GLprofilev80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/MV_GLprofileh50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/cg_admin_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="MV_TVnama,MV_TVtelp,MV_TValamat,MV_BTlogout"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/MV_CVsearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/CustomCardDefault"
+        app:cardElevation="3dp"
+        app:cardBackgroundColor="@color/white"
+        app:layout_constraintWidth_percent="0.85"
+        app:layout_constraintBottom_toBottomOf="@id/MV_CLprofile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/MV_TILsearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_search"
+                app:startIconTint="@color/green"
+                app:endIconMode="clear_text"
+                app:endIconTint="@android:color/darker_gray"
+                app:hintEnabled="false"
+                style="@style/CustomTILDefault"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/MV_EDsearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingTop="8dp"
+                    android:hint="@string/cari_tempat_pariwisata"
+                    android:textColorHint="@color/blue"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <HorizontalScrollView
+        android:id="@+id/sv_group_wisata"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/MV_CVsearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cpg_group_wisata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleSelection="true"
+            app:singleLine="true"/>
+
+    </HorizontalScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_search_suggest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="5dp"
+        style="@style/CustomCardDefault"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/MV_CVsearch"
+        app:layout_constraintStart_toStartOf="@id/MV_CVsearch"
+        app:layout_constraintEnd_toEndOf="@id/MV_CVsearch">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/rv_search_suggest"
+            tools:itemCount="8"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/MV_SRlistpariwisata"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintTop_toBottomOf="@id/sv_group_wisata"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/MV_RVlistpariwisata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutAnimation="@anim/rvitem_animation"
+            tools:itemCount="5"
+            tools:listitem="@layout/rv_wisata"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/MV_FABaddpariwisata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_add"
+        android:tint="@color/white"
+        app:maxImageSize="36dp"
+        app:layout_constraintBottom_toBottomOf="@id/MV_SRlistpariwisata"
+        app:layout_constraintEnd_toEndOf="@id/MV_SRlistpariwisata"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
